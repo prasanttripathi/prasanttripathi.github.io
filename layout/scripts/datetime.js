@@ -2,6 +2,12 @@
   var today = new Date;
 document.getElementById('date').innerHTML = today.toDateString();
 
+var video = document.getElementById('video');
+video.addEventListener('click', function () {
+    video.play();
+}, false);
+
+
        function startTime() {
            var today = new Date();
            var h = today.getHours();
@@ -17,3 +23,5 @@ function checkTime(i) {
     if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
     return i;
 }
+
+
