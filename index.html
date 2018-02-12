@@ -25,21 +25,101 @@ Licence URI: http://www.os-templates.com/template-terms
     <link href="layout/scripts/bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="layout/styles/SocialIconCss.css" rel="stylesheet" />
 
+<style>
+#wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
 
+#wrap p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: rgba(255,255,255,.5);
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+
+.ball {
+  pointer-events: none;
+  position: absolute; 
+  width: 2px;
+  height: 2px;
+  border-radius: 50%; 
+  background: gray;
+  animation: implode 1s ease-in-out;
+  animation-fill-mode: both;
+  opacity: .3;
+}
+
+@keyframes implode {
+  100% {transform: scale(0)}
+}
+
+
+
+
+
+
+
+
+
+
+
+.tiles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .tile {
+    position: relative;
+    float: left;
+    width: 33.333%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+  <script src="layout/scripts/datetime.js"></script>
 </head>
-<body id="top" onload="startTime()">
-
+<body id="top" class="wrap">
+	
     <div class="fullscreen-bg">
-        <video id="video" loop muted autoplay poster="images/tKHSSJv.jpg" class="fullscreen-bg__video">
+	<div id="wrap">
+        <video id="video" loop muted autoplay poster="images/homepic.jpg" class="fullscreen-bg__video">
             <source src="Video/bgClip.mp4"  /> <!-- 1,2,11,14,16,18-->
 
         </video>
-    </div>
+</div>
+	</div>
 
     <div id="pageintro" class="hoc clear" style="margin-top:-100px">
 
         <article style="color: white">
-            <h1 class="font-x1 bold" style="text-transform: none;font-size:30px">It's <span id="txt"></span>&nbsp;, <span id="date"></span> &</h1>
+            <h1 class="font-x1 bold" style="text-transform: none;font-size:30px">Hello World !</h1>
             <span class="heading" style="text-transform:capitalize">I am Prashant ,</span><br /><span class="heading" style="text-transform:capitalize;width:400px"> Software Engineer  </span> <br /><span class="font-x1 bold" style="font-size:20px">I Develop web Applications/Product on Microsoft Platform and opensources. </span><br /> <br />
             <span class="font-x1 bold " style="font-size:20px">You have landed to my personal website, Accept my <span  style="font-size:35px">Hello </span>  from the binaries.</span>
             <br />
@@ -58,8 +138,10 @@ Licence URI: http://www.os-templates.com/template-terms
        <br />
         <br />
     </div>
+<!--	
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Ad1 -->
+<!-- Ad1 --> 
+<!--
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-2399949852162375"
@@ -67,9 +149,9 @@ Licence URI: http://www.os-templates.com/template-terms
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+</script> -->
 
-          <div class="wrapper row1" style="background-color: #cbcbcb;margin-top:-50px">
+          <div class="wrapper row1" style="background-color: #cbcbcb;margin-top:-50px" >
         <header id="header" class="hoc clear">
             <div id="logo" class="fl_left">
                 <h3  style="text-transform: none; font-family: Georgia;"><i>Sometimes I dream of saving the world. Saving everyone from the invisible hand, one that brands us with an employee badge.The one that forces us to work for them ,that are secretly running the world. I'm talking about the guys no one knows about, the ones that are invisible. The top 1% of the top 1%, the guys that play God without permission. The one that controls us every day without us knowing it. But I can't stop it. I'm not that special. I'm just anonymous.
@@ -185,9 +267,10 @@ Licence URI: http://www.os-templates.com/template-terms
             </ul>
         </section>
     </div>
-
+<!--
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Ad2 -->
+<!--
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-2399949852162375"
@@ -195,7 +278,7 @@ Licence URI: http://www.os-templates.com/template-terms
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+</script> -->
     <div  id="knowMe" class="wrapper bgded overlay" style="background-color: ThreeDHighlight">
 
         <div class="container" style="text-align:center;color:white;">
@@ -373,8 +456,10 @@ Licence URI: http://www.os-templates.com/template-terms
 
 
     </div>
+	<!--
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Ad3 -->
+<!--
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-2399949852162375"
@@ -382,7 +467,7 @@ Licence URI: http://www.os-templates.com/template-terms
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+</script> -->
     <div class="wrapper row4 bgded overlay" style="background-color: ActiveBorder">
         <footer id="footer" class="hoc clear">
 
@@ -439,7 +524,7 @@ Licence URI: http://www.os-templates.com/template-terms
     <script src="layout/scripts/jquery.min.js"></script>
     <script src="layout/scripts/jquery.backtotop.js"></script>
     <script src="layout/scripts/jquery.mobilemenu.js"></script>
-    <script src="layout/scripts/datetime.js"></script>
+  
      <script>
          (function (i, s, o, g, r, a, m) {
              i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -452,7 +537,50 @@ Licence URI: http://www.os-templates.com/template-terms
          ga('send', 'pageview');
 
 </script>
+<script>
+$(document).ready(function(){
+  
+  var mousePos = {};
 
+ function getRandomInt(min, max) {
+   return Math.round(Math.random() * (max - min + 1)) + min;
+ }
+  
+  $(window).mousemove(function(e) {
+    mousePos.x = e.pageX;
+    mousePos.y = e.pageY;
+  });
+  
+  $(window).mouseleave(function(e) {
+    mousePos.x = -1;
+    mousePos.y = -1;
+  });
+  
+  var draw = setInterval(function(){
+    if(mousePos.x > 0 && mousePos.y > 0){
+      
+      var range = 5;
+      
+      var color = "background: rgb("+getRandomInt(0,255)+","+getRandomInt(0,255)+","+getRandomInt(0,255)+");";
+      
+      var sizeInt = getRandomInt(10, 15);
+      size = "height: " + sizeInt + "px; width: " + sizeInt + "px;";
+      
+      var left = "left: " + getRandomInt(mousePos.x-range-sizeInt, mousePos.x+range) + "px;";
+      
+      var top = "top: " + getRandomInt(mousePos.y-range-sizeInt, mousePos.y+range) + "px;"; 
 
+      var style = left+top+color+size;
+      $("<div class='ball' style='" + style + "'></div>").appendTo('#wrap').one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){$(this).remove();}); 
+	  
+    }
+  }, 1);
+});
+
+</script>
+
+<script>
+
+</script>
 </body>
 </html>
