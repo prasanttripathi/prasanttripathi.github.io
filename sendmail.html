@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hellow World</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="techblogs.html">Back to Main</a>
+      
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h2>How to send mail and capture it from HTML static page through Google Sheet without using server</h2>
+             
+              <span class="meta">Posted by
+                <a href="#">Prashant</a>
+                on Feb 15, 2018</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+		 <blockquote class="blockquote">So many times we want to receive mail from user who try to contact us from webpage. When it comes to sending mail,first thing that comes to our mind is that we need  server.Here i am going to show you a simple way of doing it,You don't need server side technology to do this ,it's google sheet and some javascript that it will do for you and the beauty of this approach is you don't need to maintain a database for contact history.Google sheet will track all the mails that you received <br> So lets start. </blockquote>
+     
+		    <h5> 1> Google Sheet Setup</h5>
+            <p ><span style="font-weight:900"> *	&nbsp;&nbsp;</span>Go to <a href="https://docs.google.com/spreadsheets/d/10QdSCKrcSkSL9TxvUnLBDz5dxuhLLSshyz-m4xnUNOc/edit?usp=sharing" target="_blank">https://docs.google.com/spreadsheets/d/10QdSCKrcSkSL9TxvUnLBDz5dxuhLLSshyz-m4xnUNOc/edit?usp=sharing</a></p>
+
+            <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span>Click on File ->  Make a copy ->  Give file some name and save to My Drive (You can download it locally too) </p>
+
+
+            <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span>Click on Tools -> Script Editor -> Under Selcted a project to open select option 3 "html contact form sendEmail" (see screen shot) and it should open a javascript windows with multifunctions.If it is showing single function then go back and click on option 2 </p>
+			
+		
+              <img class="img-fluid" src="img/blogs/blog1/scr1.png" alt="">
+          
+
+            <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span>under the script code modified to_address to your gmail address</p>
+
+			
+              <img class="img-fluid" src="img/blogs/blog1/scr2.png" alt="">
+         
+           <!-- <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+-->
+            <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span>Save file and click on Publish and Deploy as web app. <br>
+give access to anonymous (see screenshot) .Authenticate this with same google account if it ask for authentication and by clicking show advanced verify your app.
+			</p>
+ 
+              <img class="img-fluid" src="img/blogs/blog1/scr3.png" alt="">
+        
+			<br>
+			  <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span>Now app has been deployed .<strong>Copy the current WEB APP url ,you gonna need this is your html page </strong> and to check it it works on test webapp with latest app and if you see the following screen shot then it means your app is working</p>
+			 <img class="img-fluid" src="img/blogs/blog1/scr4.png" alt="">
+			 
+			  <p><span style="font-weight:900"> *&nbsp;&nbsp;</span>Note : If you are making any changes in script after publishing then make sure it is published again with new version and copy the new url always</p>
+
+		
+			<br>
+            <h5> 2> HTML page setup</h5>
+
+            <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span> create a contact form html page like below</p>
+			   <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span> this form has mainly 3 component. <em> Style, HTML code and JavaScript code for email</em></p>
+			
+		
+
+			 <xmp>
+		
+		<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<h3>Contact Form</h3>
+
+<div class="container">
+    <div style="display:none;" id="message">
+    <h4><em>Thanks</em> for contacting us!
+      We will get back to you soon!</h4>
+  </div>
+    <form id="contactFrom" method="POST" class="pure-form pure-form-stacked" 
+  action="copy your published web App url here">
+
+      <input id="name" name="name" placeholder="Your Full Name " />
+      <input id="email" name="email" type="email" value=""
+      required placeholder="Your Email Address"/>
+      <span id="email-invalid" style="display:none">
+        enter valid email address</span>
+      <textarea id="message" name="message" rows="5"
+      placeholder="Tell us what's on your mind..."></textarea>
+    <button>Send</button>
+  </form>
+</div>
+<script>
+
+function validEmail(email) {
+  var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  return re.test(email);
+}
+
+function validateHuman(honeypot) {
+  if (honeypot) { 
+    console.log("Robot Detected!");
+    return true;
+  } else {
+    console.log("Welcome Human!");
+  }
+}
+
+function getFormData() {
+  var form = document.getElementById("contactFrom");
+  var elements = form.elements;
+  var fields = Object.keys(elements).map(function(k) {
+    if(elements[k].name !== undefined) {
+      return elements[k].name;
+    }else if(elements[k].length > 0){
+      return elements[k].item(0).name;
+    }
+  }).filter(function(item, pos, self) {
+    return self.indexOf(item) == pos && item;
+  });
+  var data = {};
+  fields.forEach(function(k){
+    data[k] = elements[k].value;
+    var str = ""; 
+    if(elements[k].type === "checkbox"){
+      str = str + elements[k].checked + ", "; 
+      data[k] = str.slice(0, -2); 
+    }else if(elements[k].length){
+      for(var i = 0; i < elements[k].length; i++){
+        if(elements[k].item(i).checked){
+          str = str + elements[k].item(i).value + ", ";
+          data[k] = str.slice(0, -2);
+        }
+      }
+    }
+  });
+
+  data.formDataNameOrder = JSON.stringify(fields);
+  data.formGoogleSheetName = form.dataset.sheet || "responses";
+  data.formGoogleSendEmail = form.dataset.email || "";
+
+  console.log(data);
+  return data;
+}
+
+function handleFormSubmit(event) {  
+  event.preventDefault();  
+  var data = getFormData();  
+
+  if( !validEmail(data.email) ) { 
+    document.getElementById('email-invalid').style.display = 'block';
+    return false;
+  } else {
+    var url = event.target.action; 
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        console.log( xhr.status, xhr.statusText )
+        console.log(xhr.responseText);
+        document.getElementById('contactFrom').style.display = 'none';
+        document.getElementById('message').style.display = 'block';
+        return;
+    };
+    var encoded = Object.keys(data).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    }).join('&')
+    xhr.send(encoded);
+  }
+}
+function loaded() {
+  var form = document.getElementById('contactFrom');
+  form.addEventListener("submit", handleFormSubmit, false);
+};
+document.addEventListener('DOMContentLoaded', loaded, false);
+</script>
+</body>
+</html>
+
+		
+			 </xmp>
+			
+				 <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span><strong>Now copy the current WEB App URL in the form action url</strong></p>
+			<p><span style="font-weight:900"> *	&nbsp;&nbsp;</span>Your form will look like this : </p>
+
+			
+              <img class="img-fluid" src="img/blogs/blog1/scr5.png" alt="">
+
+            <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span>Fill the form details and click on send. Ofcourse validations is enabled for email :)</p>
+
+             <p><span style="font-weight:900"> *&nbsp;&nbsp;</span>You can see it in console section of  chrome dev tool as status 200 means it is done and you can see the response</p>
+
+			    <img class="img-fluid" src="img/blogs/blog1/scr6.png" alt="">
+				
+				 <p><span style="font-weight:900"> *	&nbsp;&nbsp;</span>Now go back in your google sheet and you can see that contact is added in sheet and ofcourse you will receive a mail in your mailbox</p>
+ <img class="img-fluid" src="img/blogs/blog1/scr7.png" alt="">
+        <br>
+		<br>
+		<br>
+		
+		 <blockquote class="blockquote"> I have tried to make this as simple and easy it was possible .But in case something is breaking then feel free to shoot me at <i>prashant30192@gmail.com</i></blockquote>
+       <br>
+		<h5 >Cheers !</h5>
+		<h5 class="heading">Happy Programming </h5>
+		   </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+             <li class="list-inline-item">
+                <a href="https://www.instagram.com/prashant_tripathii/">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+			   <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/prashant-tripathi-93baa2126/">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/prashant.tripathi.92505">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+              <p class="copyright text-muted">Copyright &copy; @prashanttripathi.com 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
